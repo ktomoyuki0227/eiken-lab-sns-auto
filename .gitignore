@@ -1,0 +1,16 @@
+# Google サービスアカウントキー（絶対にコミットしない）
+*.json
+!package.json
+!package-lock.json
+
+# 環境変数
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+.idea/
