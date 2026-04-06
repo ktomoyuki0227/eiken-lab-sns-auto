@@ -84,8 +84,9 @@
 ```
 以下の手順で Google スプレッドシートを作成してください。
 
-1. https://drive.google.com を開いてください。
-2. 「新規」→「Google スプレッドシート」→「空白のスプレッドシート」を作成してください。
+1. 以下の URL を開いてください（長畑さん提供の Google Drive フォルダ）：
+   https://drive.google.com/drive/folders/1NCD5b8Tg7YPQMCm4tEC9xj26Onx8i0uK
+2. フォルダ内で「新規」→「Google スプレッドシート」→「空白のスプレッドシート」を作成してください。
 3. スプレッドシートのタイトルを「英検ラボ SNS コンテンツ候補」に変更してください。
 
 【シート1（Instagram）のヘッダー設定】

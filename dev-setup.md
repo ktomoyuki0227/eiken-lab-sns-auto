@@ -66,9 +66,11 @@ STEP 5：動作テスト
 
 ### スプレッドシートの作成
 
-1. Google Drive で新しいスプレッドシートを作成
-2. 名前：「英検ラボ SNS コンテンツ候補」
-3. URL から `spreadsheetId` をメモ（`https://docs.google.com/spreadsheets/d/{ここ}/edit` の部分）
+1. 長畑さん提供の Google Drive フォルダを開く
+   - https://drive.google.com/drive/folders/1NCD5b8Tg7YPQMCm4tEC9xj26Onx8i0uK
+2. このフォルダ内に新しいスプレッドシートを作成
+3. 名前：「英検ラボ SNS コンテンツ候補」
+4. URL から `spreadsheetId` をメモ（`https://docs.google.com/spreadsheets/d/{ここ}/edit` の部分）
 
 ### シート構成
 
