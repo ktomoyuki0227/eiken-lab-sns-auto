@@ -9,16 +9,20 @@
 ## 全体の流れ
 
 ```
-STEP 1：Dify ワークスペース確認
+STEP 1：Dify ワークスペース確認（友幸）
     ↓
-STEP 2：Google Cloud セットアップ（Sheets API）
+STEP 2：Google Cloud セットアップ（長畑さん）
     ↓
-STEP 3：Google スプレッドシート作成
+STEP 3：Google スプレッドシート作成（長畑さん）
     ↓
-STEP 4：Dify ワークフロー構築
+STEP 4：Dify ワークフロー構築（友幸）
     ↓
-STEP 5：動作テスト
+STEP 5：動作テスト（友幸）
 ```
+
+STEP 2・3 は長畑さん側の Google アカウントで実施してもらう作業。
+このシステムは長畑さんの事業として長期運用するため、Google Cloud プロジェクト・サービスアカウント・スプレッドシートはすべて長畑さん側が所有者となる形で構築する。
+長畑さんが作成後、サービスアカウントの JSON キーとスプレッドシート ID を友幸に共有してもらう。
 
 ※ Tavily Search は V2 以降で導入予定。V1 は Dify 標準 Web Search を使用する。
 
@@ -32,11 +36,14 @@ STEP 5：動作テスト
 
 ---
 
-## STEP 2：Google Cloud セットアップ
+## STEP 2：Google Cloud セットアップ【長畑さん担当】
+
+長畑さんの Google アカウントで実施してください。
+完了後、サービスアカウントの JSON キーを友幸に共有してください（メールなどで送付）。
 
 ### プロジェクト作成
 
-1. https://console.cloud.google.com にアクセス（友幸の Google アカウント）
+1. https://console.cloud.google.com にアクセス（長畑さんの Google アカウント）
 2. 上部「プロジェクトを選択」→「新しいプロジェクト」
 3. プロジェクト名：`eiken-lab-sns` で作成
 
@@ -54,15 +61,21 @@ STEP 5：動作テスト
 5. 「キー」タブ →「鍵を追加」→「JSON」でダウンロード
 6. ダウンロードした JSON ファイルを安全な場所に保存（Git には絶対に入れない）
 
-### JSON キーから必要な値を確認
+### JSON キーの共有（長畑さん → 友幸）
 
-ダウンロードした JSON の中の以下2つをメモしておく：
+ダウンロードした JSON ファイルを友幸に安全な方法で送付する（メール添付 等）。
+JSON ファイルの中の以下2つが特に必要：
 - `client_email`（例：`dify-sheets-writer@eiken-lab-sns.iam.gserviceaccount.com`）
-- `private_key`（後で Dify の HTTP ノードの認証に使う）
+- `private_key`（Dify の HTTP ノードの認証に使う）
+
+※ JSON ファイルは Git に絶対にコミットしない。友幸も手元に安全な場所で保管する。
 
 ---
 
-## STEP 3：Google スプレッドシート作成
+## STEP 3：Google スプレッドシート作成【長畑さん担当】
+
+長畑さんが提供済みの Google Drive フォルダ内にスプレッドシートを作成してください。
+完了後、スプレッドシート ID を友幸に共有してください。
 
 ### スプレッドシートの作成
 
@@ -70,7 +83,7 @@ STEP 5：動作テスト
    - https://drive.google.com/drive/folders/1NCD5b8Tg7YPQMCm4tEC9xj26Onx8i0uK
 2. このフォルダ内に新しいスプレッドシートを作成
 3. 名前：「英検ラボ SNS コンテンツ候補」
-4. URL から `spreadsheetId` をメモ（`https://docs.google.com/spreadsheets/d/{ここ}/edit` の部分）
+4. URL から `spreadsheetId` をメモ（`https://docs.google.com/spreadsheets/d/{ここ}/edit` の部分）→友幸に共有
 
 ### シート構成
 
