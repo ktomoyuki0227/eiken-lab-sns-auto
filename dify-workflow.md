@@ -32,9 +32,15 @@
   システムプロンプト：コンテンツ生成指示
   ユーザープロンプト：日付 + 検索結果 + 生成指示
     ↓
-[Code ノード]（JSON パース・整形）
+[Code ノード]（JSON パース → Instagram/note それぞれのドキュメント本文を生成）
     ↓
-[HTTP ノード]（Google Sheets API 書き込み）← 長畑さん側の準備が整ったら設定
+[HTTP ノード 1]（Drive API：「YYYY-MM-DD Instagram」ファイル作成）← 後で設定
+    ↓
+[HTTP ノード 2]（Docs API：Instagram 本文を挿入）← 後で設定
+    ↓
+[HTTP ノード 3]（Drive API：「YYYY-MM-DD note」ファイル作成）← 後で設定
+    ↓
+[HTTP ノード 4]（Docs API：note 本文を挿入）← 後で設定
     ↓
 [End]
 ```
@@ -109,74 +115,76 @@ def main(llm_output: str, date: str) -> dict:
     instagram = data.get("instagram", [])
     note = data.get("note", [])
 
-    # ドキュメント本文を整形
-    lines = []
-    lines.append(f"英検ラボ SNS コンテンツ候補 - {date}")
-    lines.append("=" * 50)
-    lines.append("")
-
-    # Instagram セクション
-    lines.append("■ Instagram 候補（5本）")
-    lines.append("採用したい候補の「採用：」欄に ○ を記入してください。")
-    lines.append("")
+    # ── Instagram ドキュメント本文 ──
+    ig_lines = []
+    ig_lines.append(f"{date} Instagram")
+    ig_lines.append("=" * 40)
+    ig_lines.append("採用したい候補の「採用：」欄に ○ を記入してください。")
+    ig_lines.append("")
 
     for i, item in enumerate(instagram, 1):
-        lines.append("─" * 40)
-        lines.append(f"【候補 {i}】カテゴリ：{item.get('カテゴリ', '')}　　採用：")
-        lines.append("─" * 40)
-        lines.append(f"▶ タイトル")
-        lines.append(item.get("タイトル", ""))
-        lines.append("")
-        lines.append("▶ 台本")
-        lines.append(f"[Hook 0〜3秒]")
-        lines.append(item.get("台本_Hook", ""))
-        lines.append("")
-        lines.append(f"[Agitate 4〜11秒]")
-        lines.append(item.get("台本_Agitate", ""))
-        lines.append("")
-        lines.append(f"[Solution 12〜18秒]")
-        lines.append(item.get("台本_Solution", ""))
-        lines.append("")
-        lines.append(f"[CTA 最後2秒]")
-        lines.append("「無料体験レッスンまたはお問い合わせはこちら」")
-        lines.append("")
-        lines.append("▶ キャプション")
-        lines.append(item.get("キャプション", ""))
-        lines.append("")
-        lines.append("▶ ハッシュタグ")
-        lines.append(item.get("ハッシュタグ", ""))
-        lines.append("")
+        ig_lines.append("─" * 36)
+        ig_lines.append(f"【候補 {i}】カテゴリ：{item.get('カテゴリ', '')}　採用：")
+        ig_lines.append("─" * 36)
+        ig_lines.append("▶ タイトル")
+        ig_lines.append(item.get("タイトル", ""))
+        ig_lines.append("")
+        ig_lines.append("▶ 台本")
+        ig_lines.append("[Hook 0〜3秒]")
+        ig_lines.append(item.get("台本_Hook", ""))
+        ig_lines.append("")
+        ig_lines.append("[Agitate 4〜11秒]")
+        ig_lines.append(item.get("台本_Agitate", ""))
+        ig_lines.append("")
+        ig_lines.append("[Solution 12〜18秒]")
+        ig_lines.append(item.get("台本_Solution", ""))
+        ig_lines.append("")
+        ig_lines.append("[CTA 最後2秒]")
+        ig_lines.append("「無料体験レッスンまたはお問い合わせはこちら」")
+        ig_lines.append("")
+        ig_lines.append("▶ キャプション")
+        ig_lines.append(item.get("キャプション", ""))
+        ig_lines.append("")
+        ig_lines.append("▶ ハッシュタグ")
+        ig_lines.append(item.get("ハッシュタグ", ""))
+        ig_lines.append("")
 
-    # note セクション
-    lines.append("")
-    lines.append("■ note 候補（5本）")
-    lines.append("採用したい候補の「採用：」欄に ○ を記入してください。")
-    lines.append("")
+    # ── note ドキュメント本文 ──
+    note_lines = []
+    note_lines.append(f"{date} note")
+    note_lines.append("=" * 40)
+    note_lines.append("採用したい候補の「採用：」欄に ○ を記入してください。")
+    note_lines.append("")
 
     for i, item in enumerate(note, 1):
-        lines.append("─" * 40)
-        lines.append(f"【候補 {i}】カテゴリ：{item.get('カテゴリ', '')}　ターゲット：{item.get('ターゲット', '')}　　採用：")
-        lines.append("─" * 40)
-        lines.append(f"▶ タイトル")
-        lines.append(item.get("タイトル", ""))
-        lines.append("")
-        lines.append("▶ リード文")
-        lines.append(item.get("リード文", ""))
-        lines.append("")
-        lines.append("▶ 本文")
-        lines.append(item.get("本文", ""))
-        lines.append("")
-        lines.append("▶ まとめ")
-        lines.append(item.get("まとめ", ""))
-        lines.append("")
+        note_lines.append("─" * 36)
+        note_lines.append(f"【候補 {i}】カテゴリ：{item.get('カテゴリ', '')}　ターゲット：{item.get('ターゲット', '')}　採用：")
+        note_lines.append("─" * 36)
+        note_lines.append("▶ タイトル")
+        note_lines.append(item.get("タイトル", ""))
+        note_lines.append("")
+        note_lines.append("▶ リード文")
+        note_lines.append(item.get("リード文", ""))
+        note_lines.append("")
+        note_lines.append("▶ 本文")
+        note_lines.append(item.get("本文", ""))
+        note_lines.append("")
+        note_lines.append("▶ まとめ")
+        note_lines.append(item.get("まとめ", ""))
+        note_lines.append("")
 
-    doc_text = "\n".join(lines)
-    return {"doc_text": doc_text}
+    return {
+        "instagram_doc_text": "\n".join(ig_lines),
+        "note_doc_text": "\n".join(note_lines),
+        "instagram_filename": f"{date} Instagram",
+        "note_filename": f"{date} note"
+    }
 ```
 
-### HTTP ノード 1：Google ドキュメント作成（Drive API）← 後で設定
+### HTTP ノード 1・3：Google ドキュメント作成（Drive API）← 後で設定
 
 長畑さんからサービスアカウント JSON キーとフォルダ ID が届いたら設定する。
+Instagram 用（HTTP ノード 1）と note 用（HTTP ノード 3）でそれぞれ同じ構成で設定する。
 
 設定予定：
 - Method：POST
@@ -185,22 +193,22 @@ def main(llm_output: str, date: str) -> dict:
 - Body（JSON）：
   ```json
   {
-    "name": "英検ラボ SNS コンテンツ候補 {{date}}",
+    "name": "{{instagram_filename}}",   // note 側は {{note_filename}}
     "mimeType": "application/vnd.google-apps.document",
     "parents": ["{{FOLDER_ID}}"]
   }
   ```
-- 出力：作成したドキュメントの `id`（次のノードで使用）
+- 出力：作成したドキュメントの `id`（次の HTTP ノードで使用）
 
-### HTTP ノード 2：コンテンツ挿入（Docs API）← 後で設定
+### HTTP ノード 2・4：コンテンツ挿入（Docs API）← 後で設定
 
-HTTP ノード 1 で取得したドキュメント ID を使って本文を書き込む。
+HTTP ノード 1・3 で取得したドキュメント ID を使って本文を書き込む。
 
 設定予定：
 - Method：POST
 - URL：`https://docs.googleapis.com/v1/documents/{{doc_id}}:batchUpdate`
 - 認証：Bearer Token（同上）
-- Body：Code ノードが生成した insertText リクエスト
+- Body：`instagram_doc_text` または `note_doc_text` を insertText リクエストに変換したもの
 
 > JWT 認証（サービスアカウント）の実装方法については、長畑さんから JSON キーを受け取り次第、詳細を確定する。Dify の Code ノードで JWT を生成する方式、または Apps Script 経由のシンプルな POST 方式のいずれかを採用する。
 
@@ -317,22 +325,23 @@ Dify の LLM ノード「User Prompt」欄にそのまま貼り付ける。
 
 LLM が JSON で出力 → Code ノードが以下のテキスト形式に変換 → Google ドキュメントとして保存される。
 
-### ファイル名
+### ファイル名（SNS 別・2ファイル/日）
 
-`英検ラボ SNS コンテンツ候補 YYYY-MM-DD`
+| ファイル | 内容 |
+|---------|------|
+| `2026-04-07 Instagram` | Instagram 候補5本 |
+| `2026-04-07 note` | note 候補5本 |
 
-### ドキュメント構成イメージ
+### Instagram ドキュメント構成イメージ
 
 ```
-英検ラボ SNS コンテンツ候補 - 2026-04-07
-==================================================
-
-■ Instagram 候補（5本）
+2026-04-07 Instagram
+========================================
 採用したい候補の「採用：」欄に ○ を記入してください。
 
-────────────────────────
-【候補 1】カテゴリ：悩み系　　採用：
-────────────────────────
+────────────────────────────────────
+【候補 1】カテゴリ：悩み系　採用：
+────────────────────────────────────
 ▶ タイトル
 英検、また落ちた…
 
@@ -357,13 +366,18 @@ LLM が JSON で出力 → Code ノードが以下のテキスト形式に変換
 #英検 #英検対策 #英検勉強法 #英語学習 #中学生 #高校生 ...
 
 ...（候補2〜5）
+```
 
-■ note 候補（5本）
+### note ドキュメント構成イメージ
+
+```
+2026-04-07 note
+========================================
 採用したい候補の「採用：」欄に ○ を記入してください。
 
-────────────────────────
-【候補 1】カテゴリ：試験対策系　ターゲット：中高生　　採用：
-────────────────────────
+────────────────────────────────────
+【候補 1】カテゴリ：試験対策系　ターゲット：中高生　採用：
+────────────────────────────────────
 ▶ タイトル
 英検3級に3回落ちた私が、4回目で合格できた理由
 
@@ -378,6 +392,8 @@ LLM が JSON で出力 → Code ノードが以下のテキスト形式に変換
 ・まず過去問を解いて弱点を把握する
 ・単語→文法→リスニングの順で固める
 ・...
+
+...（候補2〜5）
 ```
 
 ### LLM への JSON 出力指示（Section 4 のユーザープロンプト内）
@@ -415,11 +431,12 @@ Dify の Run ボタンで手動テストする際の確認項目。
 ### Code ノード
 
 - [ ] LLM 出力の JSON が正常にパースされている
-- [ ] doc_text に整形済みのドキュメント本文が入っている
-- [ ] Instagram 5候補・note 5候補がすべて含まれている
+- [ ] `instagram_doc_text` に整形済みの Instagram 本文が入っている
+- [ ] `note_doc_text` に整形済みの note 本文が入っている
+- [ ] `instagram_filename`・`note_filename` が正しい形式（`YYYY-MM-DD Instagram` / `YYYY-MM-DD note`）になっている
 
 ### Google ドキュメント出力
 
-- [ ] Drive フォルダ内に当日付きのファイルが作成されている
-- [ ] ファイル名が「英検ラボ SNS コンテンツ候補 YYYY-MM-DD」になっている
-- [ ] ドキュメントを開いて内容が正しく読める（文字化け・欠落なし）
+- [ ] Drive フォルダ内に「YYYY-MM-DD Instagram」が作成されている
+- [ ] Drive フォルダ内に「YYYY-MM-DD note」が作成されている
+- [ ] 各ドキュメントを開いて内容が正しく読める（文字化け・欠落なし）
