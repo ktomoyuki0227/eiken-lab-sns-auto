@@ -54,12 +54,21 @@
 | 項目 | 設定値 |
 |------|--------|
 | トリガー | Schedule（スケジュール） |
-| Cron 式 | `0 23 * * *`（UTC 23:00 = JST 翌朝 8:00） |
-| 出力変数 | `date`（今日の日付、YYYY-MM-DD 形式） |
+| Cron 式 | `0 8 * * *`（JST 8:00。Dify Cloud はローカルタイムで解釈するため UTC 換算不要） |
+| 出力変数 | なし（Start ノードに日付出力機能はない） |
 
-Dify の Start ノードには日付の自動生成機能がないため、ユーザープロンプト内の `{{date}}` は以下のいずれかで対応する：
-- Option A：Start ノードの Input に `date` を手動入力変数として定義し、Code ノードで `new Date().toISOString().slice(0,10)` を実行して生成する
-- Option B（推奨）：LLM ノードの前に Code ノードを1つ挟んで日付を生成し、変数として渡す
+Start ノードには日付の出力変数がないため、**Start の直後に Code ノードを1つ追加して日付を生成する**。
+
+```python
+from datetime import datetime, timezone, timedelta
+
+def main() -> dict:
+    jst = timezone(timedelta(hours=9))
+    today = datetime.now(jst).strftime("%Y-%m-%d")
+    return {"date": today}
+```
+
+この Code ノードの出力変数 `date` を後続の LLM ノードの `{{date}}` に渡す。
 
 ### Web Search ノード（× 3、並列配置）
 
