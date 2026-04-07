@@ -27,22 +27,23 @@
     ↓
 [Code ノード 1]（今日の日付を生成）
     ↓
-[LLM（Gemini / Claude Haiku）]
-  システムプロンプト：コンテンツ生成指示
-  ユーザープロンプト：日付 + 生成指示
+[LLM（Claude Haiku）]（Instagram + note を JSON で一括生成）
     ↓
-[Code ノード 2]（JSON パース → Instagram/note それぞれのドキュメント本文を生成）
-    ↓
-[HTTP ノード 1]（Drive API：「YYYY-MM-DD Instagram」ファイル作成）← 後で設定
-    ↓
-[HTTP ノード 2]（Docs API：Instagram 本文を挿入）← 後で設定
-    ↓
-[HTTP ノード 3]（Drive API：「YYYY-MM-DD note」ファイル作成）← 後で設定
-    ↓
-[HTTP ノード 4]（Docs API：note 本文を挿入）← 後で設定
-    ↓
+[Code ノード 2]（JSON パース → Instagram/note のドキュメント本文を生成）
+    ↓（並列）
+    ├──→ [HTTP ノード 1]（Drive API：「YYYY-MM-DD Instagram」作成）← 後で設定
+    │         ↓
+    │    [HTTP ノード 2]（Docs API：Instagram 本文を挿入）← 後で設定
+    │
+    └──→ [HTTP ノード 3]（Drive API：「YYYY-MM-DD note」作成）← 後で設定
+              ↓
+         [HTTP ノード 4]（Docs API：note 本文を挿入）← 後で設定
+    ↓（合流）
 [End]
 ```
+
+Code ノード 2 から HTTP ノード 1・3 の2本を同時に引くことで並列ブランチになる。
+Instagram（1→2）と note（3→4）は独立して実行される。
 
 ### V2 以降：Tavily 追加構成（予定）
 
@@ -50,18 +51,24 @@
 [Start]
     ↓
 [Code ノード 1]（日付生成）
-    ↓
-[Tavily Search × 3]（並列）← 長畑さん Admin が API キー設定
-  - クエリ1：「英検 ニュース {{date}}」
-  - クエリ2：「英検 勉強法 おすすめ」
-  - クエリ3：「英語学習 トレンド」
-    ↓
+    ↓（並列）
+    ├──→ [Tavily Search 1]「英検 ニュース {{date}}」
+    ├──→ [Tavily Search 2]「英検 勉強法 おすすめ」
+    └──→ [Tavily Search 3]「英語学習 トレンド」
+    ↓（合流）
 [Variable Aggregator]（検索結果をまとめる）
     ↓
 [LLM]（日付 + 検索結果 → コンテンツ生成）
     ↓
-...以降は V1 と同じ
+[Code ノード 2]（JSON パース → ドキュメント本文生成）
+    ↓（並列）
+    ├──→ [HTTP ノード 1]（Drive：Instagram 作成）→ [HTTP ノード 2]（Docs：Instagram 挿入）
+    └──→ [HTTP ノード 3]（Drive：note 作成）   → [HTTP ノード 4]（Docs：note 挿入）
+    ↓（合流）
+[End]
 ```
+
+※ Tavily Search は長畑さん（Admin）が Dify に API キーを登録してから追加する。
 
 ---
 
@@ -98,7 +105,10 @@ def main() -> dict:
 | Max Tokens | 8000（10候補分を一括生成するため多めに設定） |
 | システムプロンプト | Section 3 参照 |
 | ユーザープロンプト | Section 4 参照 |
-| 出力変数名 | `llm_output` |
+| 出力変数名 | `text`（Dify 固定・変更不可）|
+
+> Dify の LLM ノードの出力変数名（`text` / `reasoning_content` / `usage`）は変更できない。
+> 次の Code ノード 2 の入力変数設定で、変数名 `llm_output` に LLM ノードの `text` をマッピングすることで、コード内では `llm_output` として扱える。
 
 ### Code ノード（JSON パース → ドキュメント本文生成）
 
@@ -189,7 +199,8 @@ def main(llm_output: str, date: str) -> dict:
 ### HTTP ノード 1・3：Google ドキュメント作成（Drive API）← 後で設定
 
 長畑さんからサービスアカウント JSON キーとフォルダ ID が届いたら設定する。
-Instagram 用（HTTP ノード 1）と note 用（HTTP ノード 3）でそれぞれ同じ構成で設定する。
+HTTP ノード 1（Instagram）と HTTP ノード 3（note）は Code ノード 2 から**並列**で実行される。
+それぞれ同じ構成で設定する。
 
 設定予定：
 - Method：POST

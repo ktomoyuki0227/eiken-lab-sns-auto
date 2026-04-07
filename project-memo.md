@@ -266,21 +266,20 @@ CTA（シーティーエー）とは「Call to Action（行動喚起）」の略
 
 Dify スケジュールトリガー
     ↓
-Web Search ノード（Dify 標準）：「英検 ニュース」等のキーワードで最新情報を検索
-  ※ V1 は Dify 標準の Web Search を使用（外部 API キー不要）
-  ※ 英検公式X（旧Twitter）の投稿が情報鮮度の面で最も有効（確認済み）
-  ※ 参照先URLは長畑さんから後日共有予定
-    ↓
-Knowledge 参照ノード：過去分析から「伸びるコンテンツの傾向」を取得（V2から有効）
-    ↓
-LLM ノード（Claude Haiku）：
+【V1】LLM ノード（Claude Haiku）：LLM 自身の知識をもとにコンテンツを生成
   - Instagram用 5候補を生成（台本 + キャプション + ハッシュタグ）
   - note用 5候補を生成（タイトル + リード + 本文 + まとめ + CTA）
+  ※ V1 はリアルタイム Web 検索なし（詳細は Section 8 参照）
+  ※ V2 以降：Tavily Search で最新情報を収集してから LLM に渡す構成に変更予定
   ※ Claude を選定した理由：長畑さんが Dify に Claude クレジット（3000円分）を入れ済み。
     テキスト生成に特化した軽量モデル（Haiku）で十分な品質が出る見込み。
     開発初期は友幸の Gemini 無料枠で試作し、最終検証フェーズで Claude に切り替える。
     ↓
-HTTP ノード：Google Drive フォルダに Google ドキュメントを作成し、全10候補を保存
+【V2から】Knowledge 参照ノード：過去分析から「伸びるコンテンツの傾向」を取得
+    ↓
+HTTP ノード（並列）：Google Drive フォルダに Google ドキュメントを2ファイル作成
+  - 「YYYY-MM-DD Instagram」：Instagram 候補5本
+  - 「YYYY-MM-DD note」：note 候補5本
     ↓
 長畑さんがフォルダ内のドキュメントを確認 → Instagram 1本・note 1本を選んで投稿
 
@@ -310,11 +309,17 @@ Google Looker Studio で可視化（無料）
 ### 5-2. データフロー
 
 ```
-Web Search（Dify標準）→ Dify ワークフロー → Google スプレッドシート（ドラフト）
-                              ↑                         ↓
-                        Dify Knowledge            担当者がレビュー・投稿
-                              ↑
-                    Instagram Graph API（週次・V2）
+【V1】
+Dify ワークフロー → Google Drive（ドキュメント×2/日）
+                         ↓
+                   担当者がレビュー・投稿
+
+【V2以降】
+Tavily Search → Dify ワークフロー → Google Drive（ドキュメント×2/日）
+                      ↑                      ↓
+                Dify Knowledge          担当者がレビュー・投稿
+                      ↑
+            Instagram Graph API（週次・V2）
 ```
 
 ---
@@ -328,7 +333,7 @@ Web Search（Dify標準）→ Dify ワークフロー → Google スプレッド
 | ワークフロー基盤 | Dify（クラウド / Pro） | 長谷さんが Dify Pro で管理。長畑さんが Claude クレジット3000円分をチャージ済み |
 | LLM（最終検証・本番） | Claude Haiku（Anthropic） | 長畑さんが Dify に入れたクレジットを使用 |
 | LLM（開発初期） | Gemini API（Google AI Studio） | 友幸の学生無料枠で試作用に使用 |
-| 情報収集（Web検索） | Brave Search | 無料枠 月2,000クエリ。V2 以降で Tavily に切り替え予定 |
+| 情報収集（Web検索） | なし（V1）/ Tavily Search（V2以降） | V1 はリアルタイム検索なし。V2 以降で長畑さん（Admin）が Tavily を設定 |
 | スケジューリング | Dify スケジュールトリガー | Pro プラン内 |
 | ナレッジベース | Dify Knowledge（RAG） | Pro プラン内 |
 | ドラフト保存 | Google ドキュメント（Drive API） | 無料 |
@@ -634,3 +639,4 @@ PDCA が完全に回り、コンテンツ品質が自律的に向上する状態
 | 2026-04-07 | 長畑さん提供の Google Drive フォルダURL（Section 11）を追記。Section 5-2 データフローの「Tavily Search」を「Web Search（Dify標準）」に修正。Section 4-5・6-4・11 の南村くん記述を「現時点1人・将来ジョイン可能性あり」に修正。Section 7-1 の責任分担を更新（Google Cloud 設定は長畑さん側）。保存先の表現を「Drive フォルダ内のスプレッドシート」に統一。 |
 | 2026-04-07 | 保存先を Google Sheets → Google ドキュメント（SNS 別・1日2ファイル）に変更。ファイル名：「YYYY-MM-DD Instagram」「YYYY-MM-DD note」。 |
 | 2026-04-07 | Section 8 を全面改訂。V1 での情報収集除外の経緯を長畑さん向けに詳述。Tavily→権限問題、Web Search→無料選択肢消滅という経緯を記録。V1 は LLM 単体生成、V2 以降で Tavily 導入という方針を明記。最終ゴール（リアルタイム情報収集）は変わらないことを強調。 |
+| 2026-04-07 | Section 5-1・5-2・6-1 を実態に合わせ修正。V1 の Web Search なし構成、Google ドキュメント2ファイル並列生成、情報収集なし（V2 以降 Tavily）を各所に反映。LLM 出力変数名（Dify 固定 `text`）を明記。HTTP ノード並列ブランチ構成を全ドキュメントに統一。 |
