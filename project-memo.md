@@ -328,7 +328,7 @@ Web Search（Dify標準）→ Dify ワークフロー → Google スプレッド
 | ワークフロー基盤 | Dify（クラウド / Pro） | 長谷さんが Dify Pro で管理。長畑さんが Claude クレジット3000円分をチャージ済み |
 | LLM（最終検証・本番） | Claude Haiku（Anthropic） | 長畑さんが Dify に入れたクレジットを使用 |
 | LLM（開発初期） | Gemini API（Google AI Studio） | 友幸の学生無料枠で試作用に使用 |
-| 情報収集（Web検索） | Dify 標準 Web Search | 外部 API キー不要。V2 以降で Tavily に切り替え予定 |
+| 情報収集（Web検索） | Brave Search | 無料枠 月2,000クエリ。V2 以降で Tavily に切り替え予定 |
 | スケジューリング | Dify スケジュールトリガー | Pro プラン内 |
 | ナレッジベース | Dify Knowledge（RAG） | Pro プラン内 |
 | ドラフト保存 | Google ドキュメント（Drive API） | 無料 |
@@ -463,7 +463,7 @@ V1 は Dify 標準の Web Search を使用する（外部 API キー不要で即
 
 | フェーズ | 収集方法 | 備考 |
 |---------|---------|------|
-| V1 | Dify 標準 Web Search | 外部 API キー不要。すぐ使える |
+| V1 | Brave Search（無料枠 月2,000クエリ） | 開発中は友幸が API キー取得。本番移行後は長畑さんに移管 |
 | V2 以降 | Tavily Search | 精度向上のため切り替え。長畑さん（Admin）が API キー設定 |
 
 ### 検索キーワード候補（V1）

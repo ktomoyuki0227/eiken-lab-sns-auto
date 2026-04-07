@@ -72,17 +72,26 @@ def main() -> dict:
 
 ### Web Search ノード（× 3、並列配置）
 
-Dify の「Tools → Web Search」ノードを3つ並べる。
+Dify の Web 検索は現バージョンですべて外部 API キーが必要。以下のいずれかを選択する。
+
+**開発中の推奨：Brave Search（無料枠 月2,000クエリ・クレジットカード不要）**
+1. https://brave.com/search/api/ でアカウント作成・API キー取得
+2. Dify マーケットプレイスから「Brave」をインストール
+3. ツールタブに「Brave」が追加されるのでそれを使用
+
+**V2 以降：Tavily（長畑さん Admin で設定）**
+- より高精度。長畑さん（Admin）が API キーを Dify に登録する運用で確定済み
 
 | ノード名 | クエリ |
 |---------|--------|
-| Web Search 1 | 英検 ニュース（Code ノードで生成した今日の日付を末尾に付与） |
+| Web Search 1 | 英検 ニュース（`date` 変数を末尾に付与） |
 | Web Search 2 | 英検 勉強法 おすすめ |
 | Web Search 3 | 英語学習 トレンド |
 
 設定項目：
-- Search Provider：Bing（Dify 標準デフォルト）
 - Result Count：5 件（各ノード）
+
+> 開発初期に LLM ノードの動作確認を先に進めたい場合は、Web Search をスキップして Variable Aggregator にサンプルテキストを直接入力してテストすることも可能。後から検索ノードを追加できる。
 
 ### Variable Aggregator ノード
 
