@@ -110,25 +110,21 @@ JSON ファイルの中の以下2つが特に必要：
 
 ### ノード構成（V1）
 
+**V1 構成（リアルタイム検索なし）**
+
+> 当初 Tavily Search → Dify 標準 Web Search の順で検討しましたが、権限問題・無料選択肢消滅により V1 では除外しました。V2 以降で Tavily を導入しリアルタイム情報収集を実現します（詳細は project-memo.md Section 8 参照）。
+
 ```
 [Start]
     ↓
-[Web Search ノード（Dify 標準）] × 3本（並列）
-  - クエリ1：「英検 ニュース」
-  - クエリ2：「英検 勉強法 おすすめ」
-  - クエリ3：「英語学習 トレンド」
-    ↓
-[Variable Aggregator]（検索結果をまとめる）
+[Code ノード 1]（今日の JST 日付を生成）
     ↓
 [LLM（Gemini / Claude Haiku）]
-  プロンプト：
-    - システムプロンプト：コンテンツ生成の指示（カテゴリ・フォーマット）
-    - ユーザープロンプト：収集した情報 + 今日の日付 + 生成指示
   出力：Instagram 5候補 + note 5候補（JSON形式）
     ↓
-[Code ノード]（JSON をドキュメント本文テキストに整形。SNS 別に2つの doc_text を生成）
+[Code ノード 2]（JSON をドキュメント本文テキストに整形）
     ↓
-[HTTP ノード × 4]（Drive API でファイル作成 → Docs API で本文挿入、Instagram と note でそれぞれ実行）
+[HTTP ノード × 4]（Drive API + Docs API）← 長畑さん側の準備が整ったら設定
   ファイル名：「YYYY-MM-DD Instagram」「YYYY-MM-DD note」
     ↓
 [End]
