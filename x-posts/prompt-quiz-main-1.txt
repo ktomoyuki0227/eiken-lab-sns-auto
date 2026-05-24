@@ -1,0 +1,810 @@
+あなたはブラウザ上で動作するAIアシスタントです。
+現在ログイン済みのX（x.com）を操作して、以下30件をスレッド形式の予約投稿として登録してください。
+
+【操作の注意】
+- 操作するのはx.comのページのみです
+- スクリーンショット撮影は不要です。クリックと文字入力だけで進めてください
+- chrome-extension://のURLには一切アクセスしないでください
+
+【1件あたりの操作手順】
+1. 「ポストする」ボタンをクリックして投稿ダイアログを開く
+2. 1つ目のテキストエリアに「投稿文」を入力する
+3. テキストエリア下部の「＋」ボタン（スレッドに追加）をクリックする
+4. 2つ目のテキストエリアに「リプライ文」を入力する（URLも含めて入力すること）
+5. テキストエリア下部のカレンダーアイコン（スケジュール）をクリック
+6. 日付と時刻を設定する（タイムゾーン：JST）
+7. 「次へ」または「確認」ボタンをクリック
+8. 「スケジュール設定」ボタンをクリックして確定
+9. 「No.〇〇 登録完了（投稿日：〇〇　投稿時間：〇〇）」と報告してから次へ進む
+
+【エラー時の対応】
+- 操作が詰まったり、エラーが出たら即座に止めて状況を報告してください
+- どのNo.まで完了したかを必ず報告してください
+
+【改行の表記について】
+投稿文・リプライ文内の「　」（全角スペース1字のみの行）は空行を表します。
+Xのテキストボックスに入力する際は「　」を削除して空行（Enterキー2回）に変換してください。
+
+【投稿一覧】
+
+No.4（投稿日：2026/05/25　投稿時間：07:08）
+
+▼投稿文
+TOEICer の7割が選ぶ不正解、あなたは？
+
+The contract stipulates that the supplier _____ delivery within 30 days.
+
+(A) guarantee
+(B) guarantees
+(C) will guarantee
+(D) guaranteeing
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) guarantee！
+
+stipulate that + S + 原形動詞（仮定法現在）→ guarantee が正解。B の三単現 guarantees は最大のひっかけ。TOEIC頻出構文
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.5（投稿日：2026/05/26　投稿時間：06:51）
+
+▼投稿文
+自信ある人ほど引っかかります。
+
+The _____ in productivity following the software upgrade exceeded expectations.
+
+(A) improves
+(B) improved
+(C) improvement
+(D) improving
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) improvement！
+
+冠詞 The の後には名詞が入る。improvement（向上・改善）が正解。A/B:動詞形 D:現在分詞は名詞として機能しない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.6（投稿日：2026/05/27　投稿時間：07:05）
+
+▼投稿文
+一見簡単。でもほとんどの人が引っかかります。
+
+All submitted proposals will be kept _____ until the final decision is made.
+
+(A) confidentiality
+(B) confidential
+(C) confidently
+(D) confide
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) confidential！
+
+keep O + 補語 の補語として形容詞 confidential（機密扱いの）が正解。A:名詞 C:副詞 D:動詞
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.7（投稿日：2026/05/28　投稿時間：06:54）
+
+▼投稿文
+シンプルに見えて、実は間違える人が多いやつ。
+
+The CEO was reluctant to _____ the merger without consulting the shareholders.
+
+(A) approve
+(B) approval
+(C) approving
+(D) approved
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) approve！
+
+reluctant to の後は動詞原形 approve が正解。B:名詞 C:動名詞は to に続けない D:過去分詞
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.8（投稿日：2026/05/29　投稿時間：07:00）
+
+▼投稿文
+TOEIC700点でも間違える人続出の問題です。
+
+The newly _____ regulations will affect all businesses in the sector.
+
+(A) implement
+(B) implements
+(C) implemented
+(D) implementation
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) implemented！
+
+名詞 regulations を前から修飾する形容詞的過去分詞 implemented が正解。A:動詞原形 B:三単現 D:名詞
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.9（投稿日：2026/05/30　投稿時間：06:58）
+
+▼投稿文
+3秒で答えられたらTOEIC 900点レベルです。
+
+The board insisted that the CFO _____ an independent audit immediately.
+
+(A) conduct
+(B) conducts
+(C) conducted
+(D) conducting
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) conduct！
+
+insist that + S + 原形動詞（仮定法現在）→ conduct が正解。B の三単現が最大のひっかけ。TOEIC上級頻出構文
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.10（投稿日：2026/05/31　投稿時間：07:10）
+
+▼投稿文
+これを知らないままだと、TOEIC 700点で伸び止まります。
+
+_____ clients proactively about delays is key to maintaining trust.
+
+(A) Inform
+(B) Informing
+(C) Informed
+(D) Information
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) Informing！
+
+文の主語として機能する動名詞 Informing が正解。A:動詞原形は主語不可 C:形容詞 D:名詞は後ろに目的語を取れない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.11（投稿日：2026/06/01　投稿時間：06:52）
+
+▼投稿文
+TOEIC800点目指すなら絶対に落とせない一問。
+
+The project manager is responsible for ensuring that deadlines are _____ met.
+
+(A) consistent
+(B) consistently
+(C) consistency
+(D) consists
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) consistently！
+
+「一貫して期限が守られる」→ 動詞句 are met を修飾する副詞 consistently が正解。A/C:名詞・形容詞は副詞の代わりにならない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.12（投稿日：2026/06/02　投稿時間：07:03）
+
+▼投稿文
+TOEIC900点でも一瞬止まる問題です。
+
+The merger negotiations remain _____ despite initial optimism from both sides.
+
+(A) uncertainty
+(B) uncertainly
+(C) uncertain
+(D) uncertified
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) uncertain！
+
+remain の補語として形容詞 uncertain（不確かな）が正解。A:名詞 B:副詞 D:「未認証の」で意味が全く合わない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.13（投稿日：2026/06/03　投稿時間：06:56）
+
+▼投稿文
+本番で必ず出ます。今解いといてください。
+
+The training program is designed to make employees _____ with the new system.
+
+(A) familiarize
+(B) familiar
+(C) familiarity
+(D) familiarizing
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) familiar！
+
+make O + 補語 の補語として形容詞 familiar（精通した）が正解。A:動詞原形 C:名詞 D:現在分詞
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.14（投稿日：2026/06/04　投稿時間：07:07）
+
+▼投稿文
+即答できたらTOEIC 900点の実力があります。
+
+It is essential that every team member _____ the confidentiality agreement.
+
+(A) signs
+(B) sign
+(C) signed
+(D) signing
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) sign！
+
+it is essential that + S + 原形動詞（仮定法現在）→ sign が正解。A の三単現が最大のひっかけ。TOEIC最頻出構文の一つ
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.15（投稿日：2026/06/05　投稿時間：06:50）
+
+▼投稿文
+これ、ぱっと見より難しいです。
+
+The consultant's _____ on cost reduction proved invaluable to the company.
+
+(A) advise
+(B) advisory
+(C) advice
+(D) advisable
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) advice！
+
+所有格の後には名詞が入る。advice（助言）が正解。A:動詞 B:形容詞（諮問的な）D:形容詞（望ましい）
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.16（投稿日：2026/06/06　投稿時間：07:04）
+
+▼投稿文
+これ解けないとTOEIC800超えは厳しいです。
+
+The new safety protocols were put in place to _____ potential risks at the facility.
+
+(A) reduce
+(B) mitigate
+(C) avoid
+(D) prevent
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) mitigate！
+
+「リスクを軽減する」= mitigate。reduce は削減。avoid/prevent は回避・防止で「軽減」とは異なるニュアンス
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.17（投稿日：2026/06/07　投稿時間：06:55）
+
+▼投稿文
+TOEIC700点でも間違える人続出の問題です。
+
+The quarterly report _____ the company's financial performance in detail.
+
+(A) outlines
+(B) underlines
+(C) headlines
+(D) sidelines
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) outlines！
+
+「概要を述べる」= outline。underline は強調する。headline/sideline は動詞としてこの文脈で使わない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.18（投稿日：2026/06/08　投稿時間：07:01）
+
+▼投稿文
+シンプルに見えて、実は間違える人が多いやつ。
+
+Before signing the contract, please read all the terms and _____ carefully.
+
+(A) conditions
+(B) requirements
+(C) obligations
+(D) circumstances
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) conditions！
+
+「条件」= terms and conditions は英語の固定表現。requirements/obligations/circumstances では成立しない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.19（投稿日：2026/06/09　投稿時間：06:59）
+
+▼投稿文
+自信ある人ほど引っかかります。
+
+The announcement of the new benefits package was warmly _____ by all staff members.
+
+(A) welcomed
+(B) accepted
+(C) received
+(D) approved
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) welcomed！
+
+「温かく迎えられた」= warmly welcomed が最も自然なコロケーション。warmly accepted/received/approved は不自然
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.20（投稿日：2026/06/10　投稿時間：07:09）
+
+▼投稿文
+TOEICer の7割が選ぶ不正解、あなたは？
+
+The company is looking to _____ its market share by entering new regions.
+
+(A) expand
+(B) extend
+(C) increase
+(D) enlarge
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) expand！
+
+「市場シェアを拡大する」= expand market share が正しいコロケーション。extend は期間・期限向き。increase/enlarge も意味は近いが expand が圧倒的標準
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.21（投稿日：2026/06/11　投稿時間：06:53）
+
+▼投稿文
+これ無理ゲーじゃないですか？
+
+The sudden resignation of the CFO has _____ investors' confidence in the company.
+
+(A) undermined
+(B) underestimated
+(C) underlined
+(D) undertaken
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) undermined！
+
+「信頼を損なう」= undermine confidence が正しいコロケーション。underestimate は過小評価 underline は強調 undertake は着手する
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.22（投稿日：2026/06/12　投稿時間：07:06）
+
+▼投稿文
+英語学習者の9割がここで詰まります。
+
+We regret to inform you that your application has been _____ at this time.
+
+(A) declined
+(B) rejected
+(C) refused
+(D) denied
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) declined！
+
+ビジネスメールの丁寧な不採用通知には declined が最もフォーマル。rejected は否定的・直接的。refused/denied は要求・権利の拒否向き
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.23（投稿日：2026/06/13　投稿時間：06:51）
+
+▼投稿文
+本当にTOEIC勉強してますか？確認します。
+
+The company's new policy is fully _____ with international labor standards.
+
+(A) consistent
+(B) compatible
+(C) compliant
+(D) correspondent
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) compliant！
+
+「法律・規制に準拠している」= compliant with。compatible は機器の互換性。consistent with は内容の一致（微妙に異なる）
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.24（投稿日：2026/06/14　投稿時間：07:02）
+
+▼投稿文
+TOEIC800点目指すなら絶対に落とせない一問。
+
+The two companies _____ a joint venture to develop new technology.
+
+(A) entered into
+(B) made into
+(C) took into
+(D) set into
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) entered into！
+
+「（契約・合意に）入る」= enter into が正しいコロケーション。enter into an agreement / a joint venture はTOEIC頻出表現
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.25（投稿日：2026/06/15　投稿時間：06:57）
+
+▼投稿文
+TOEIC900点でも一瞬止まる問題です。
+
+The new policy will _____ to those employees who joined before the cutoff date.
+
+(A) pertain
+(B) relate
+(C) apply
+(D) concern
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) apply！
+
+「（規則・政策が）適用される」= apply to。pertain to は「関連する」で「適用」ではない。concern は他動詞（to が不要）
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.26（投稿日：2026/06/16　投稿時間：07:08）
+
+▼投稿文
+一見簡単。でもほとんどの人が引っかかります。
+
+The president's speech was intended to _____ employee morale after the difficult quarter.
+
+(A) boost
+(B) raise
+(C) lift
+(D) increase
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) boost！
+
+「士気を高める」= boost morale が正しいコロケーション。raise/increase は数値向き。lift morale も使えるが boost が最頻出
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.27（投稿日：2026/06/17　投稿時間：06:54）
+
+▼投稿文
+TOEIC本番でも出題されるレベルです。
+
+Despite the setbacks, the team _____ to deliver the project on time.
+
+(A) achieved
+(B) succeeded
+(C) managed
+(D) accomplished
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(C) managed！
+
+「なんとか〜することができた」= managed to（+ 動詞原形）。succeeded in + 動名詞と区別。achieved/accomplished は名詞目的語をとる
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.28（投稿日：2026/06/18　投稿時間：07:00）
+
+▼投稿文
+即答できたらTOEIC 700点レベルは確実です。
+
+The audit revealed several _____ in the company's financial records.
+
+(A) discrepancies
+(B) differences
+(C) distinctions
+(D) diversities
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) discrepancies！
+
+「帳簿の不一致・矛盾」= discrepancy（複数形 discrepancies）。difference は一般的な違い。distinction は区別。diversity は多様性
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.29（投稿日：2026/06/19　投稿時間：06:58）
+
+▼投稿文
+本番で必ず出ます。今解いといてください。
+
+The new CEO has been tasked with _____ the company's global expansion strategy.
+
+(A) overseeing
+(B) overlooking
+(C) overcoming
+(D) overruling
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) overseeing！
+
+「監督・管理する」= oversee。overlooking は「見落とす・見渡す」（別の意味）。overcoming は克服 overruling は却下
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.30（投稿日：2026/06/20　投稿時間：07:05）
+
+▼投稿文
+これを知らないままだと、TOEIC 800点で伸び止まります。
+
+The contract will be _____ automatically unless either party gives notice.
+
+(A) renewed
+(B) prolonged
+(C) extended
+(D) maintained
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) renewed！
+
+「自動更新される」= renewed automatically が契約書の標準表現。prolonged/extended は「延長」で意味は近いが renewed が最も正確
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.31（投稿日：2026/06/21　投稿時間：06:52）
+
+▼投稿文
+これ解けないとTOEIC800超えは厳しいです。
+
+The proposal was put forward _____ behalf of the entire research team.
+
+(A) in
+(B) on
+(C) for
+(D) by
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(B) on！
+
+「〜を代表して」= on behalf of。固定表現として必ず on を使う。in/for/by behalf of は存在しない
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.32（投稿日：2026/06/22　投稿時間：07:03）
+
+▼投稿文
+シンプルに見えて、実は間違える人が多いやつ。
+
+The final report must be submitted no later _____ this Friday.
+
+(A) than
+(B) as
+(C) like
+(D) from
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) than！
+
+「遅くとも〜までに」= no later than。固定表現。by no later than という形でも使われる。as/like/from は不可
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+No.33（投稿日：2026/06/23　投稿時間：06:56）
+
+▼投稿文
+TOEIC700点でも間違える人続出の問題です。
+
+_____ all the evidence available, the committee reached a unanimous decision.
+
+(A) Given
+(B) Despite
+(C) Though
+(D) Whereas
+
+答えはリプ👇
+
+#TOEIC #英語学習 #勉強垢
+
+▼リプライ文
+正解は(A) Given！
+
+「〜を考慮すると」= Given（名詞句・節を導く前置詞的用法）。Despite は逆接。Though/Whereas は接続詞で節に続く
+
+無料相談・無料レッスンはこちら👇
+https://the-rep-english.jp
+
+---
+
+30件の登録が完了したら「前半完了（No.4〜33）」と報告してください。
